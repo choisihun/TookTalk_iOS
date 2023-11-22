@@ -6,7 +6,13 @@
 //
 
 import Combine
+import ComposableArchitecture
+import LinkNavigator
 
 class SignupState: ObservableObject{
-    
+    @Dependency(\.sideEffect.signup) var sideEffect
+
+    func back() {
+        sideEffect.routeToBack()
+    }
 }
