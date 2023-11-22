@@ -7,14 +7,20 @@
 
 import Foundation
 import Alamofire
+import ComposableArchitecture
+import LinkNavigator
 
 class SigninState: ObservableObject {
     @Published var id: String = ""
     @Published var password: String = ""
     @Published var isPresented: Bool = false
     @Published var isSuccess: Bool = false
-    
-    
+    @Published var isWaitingViewActive: Bool = false
+    @Dependency(\.sideEffect.signin) var sideEffect
+
+    func signup() {
+        sideEffect.routeToSignupView()
+    }
     func login() {
 //        let parameters = [
 //            "id": id,
@@ -30,7 +36,7 @@ class SigninState: ObservableObject {
 //                TokenManager.save(.grantType, value.data.grantType)
 //                TokenManager.save(.refreshToken, value.data.refreshToken)
 //                TokenManager.save(.accessToken, value.data.accessToken)
-                self.isPresented = true
+        sideEffect.routeToHomeView()
 //            case .failure(let error):
 //                print(error.localizedDescription)
 //            }
