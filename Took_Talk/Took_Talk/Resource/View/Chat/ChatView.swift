@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatView: View {
-    @StateObject var state = ChatState()
+    @StateObject var viewModel = ChatViewModel()
     
     var body: some View {
         NavigationView {
@@ -46,18 +46,18 @@ struct ChatView: View {
                         }
                         .frame(maxWidth: 360)
                     }
-                    ForEach(state.mockData) { message in
-                        MessageView(message: message)
-                            .padding(.leading, 0)
-                    }
+//                    ForEach($viewModel.mockData) { message in
+//                        MessageView(message: message)
+////                            .padding(.top, 10)
+//                    }
                 }
                 HStack {
-                    TextField("Aa", text : $state.text, axis:.vertical)
-                        .padding()
+//                    TextField("Aa", text : $viewModel.text, axis:.vertical)
+//                        .padding()
                     
                     Button {
-                        state.sendMessage(text: state.text)
-                        state.text = ""
+//                        viewModel.sendMessage(text: viewModel.text)
+//                        viewModel.text = ""
                         
                     } label: {
                         Image(systemName: "paperplane.fill")
@@ -74,7 +74,7 @@ struct ChatView: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: Button(action: {
-            state.navigation()
+//            viewModel.navigation()
         }) {
             HStack {
                 Image(systemName: "door.left.hand.open")
