@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WaitingView: View {
-    @StateObject private var state = WaitingState()
+    @StateObject private var viewModel = WaitingViewModel()
 
     @Environment(\.presentationMode) var presentationMode
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -16,21 +16,21 @@ struct WaitingView: View {
     
     var body: some View {
         VStack {
-            Text("남은시간: \(state.timeRemaining)")
+            Text("남은시간: \(viewModel.timeRemaining)")
                 .font(.headline)
                 .padding()
             
             VStack {
-                Text("점수: \(state.score)")
+                Text("점수: \(viewModel.score)")
                     .font(.headline)
                     .padding()
                 
                 ZStack {
-                    ForEach(state.fishes.indices, id: \.self) { index in
-                        Image(state.fishes[index].imageName)
+                    ForEach(viewModel.fishes.indices, id: \.self) { index in
+                        Image(viewModel.fishes[index].imageName)
                             .resizable()
-                            .frame(width: state.fishes[index].size, height: state.fishes[index].size)
-                            .position(state.fishes[index].position)
+                            .frame(width: viewModel.fishes[index].size, height: viewModel.fishes[index].size)
+                            .position(viewModel.fishes[index].position)
                             .animation(.easeInOut)
                             .transition(.slide)
                             .onAppear {
@@ -46,20 +46,20 @@ struct WaitingView: View {
             Spacer()
             NavigationLink(
                 destination: ChatView(),
-                isActive: $state.isChatViewActive) {
+                isActive: $viewModel.isChatViewActive) {
                     EmptyView()
                 }
             .hidden()        }
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: CustomBackButton())
+//        .navigationBarItems(leading: CustomBackButton())
         
-        .alert(isPresented: $state.showAlert) {
+        .alert(isPresented: $viewModel.showAlert) {
 //            if isChatViewActive == true {
 //                
 //            } else {
                 Alert(
                     title: Text("게임 오버"),
-                    message: Text("최종점수: \(state.score)"),
+                    message: Text("최종점수: \(viewModel.score)"),
                     primaryButton: .default(Text("다시하기"), action: restartGame),
                     secondaryButton: .default(Text("나가기"), action: {
                         self.presentationMode.wrappedValue.dismiss()
@@ -69,28 +69,28 @@ struct WaitingView: View {
         }
         .onAppear(perform: startGame)
         .onReceive(timer) { _ in
-            if state.timeRemaining > 0 {
-                state.timeRemaining -= 1
+            if viewModel.timeRemaining > 0 {
+                viewModel.timeRemaining -= 1
             } else {
                 endGame()
             }
-            if state.timeRemaining == 8 {
-                state.routeToChatView()
+            if viewModel.timeRemaining == 8 {
+                viewModel.routeToChatView()
             }
         }
         .onReceive(newFishTimer) { _ in
             addNewFish()
         }
         .onDisappear {
-            if state.timeRemaining == 0 {
+            if viewModel.timeRemaining == 0 {
                 endGame()
             }
         }
     }
     
     func startGame() {
-        state.score = 0
-        state.timeRemaining = 10
+        viewModel.score = 0
+        viewModel.timeRemaining = 10
         resetFishPositions()
     }
     
@@ -103,13 +103,13 @@ struct WaitingView: View {
     }
     
     func tappedFish() {
-        if let index = state.fishes.indices.randomElement() {
-            state.fishes.remove(at: index)
-            state.score += 1
+        if let index = viewModel.fishes.indices.randomElement() {
+            viewModel.fishes.remove(at: index)
+            viewModel.score += 1
         }
     }
     func resetFishPositions() {
-        state.fishes = [
+        viewModel.fishes = [
             Fish(imageName: "fish", position: randomPosition(), size: 80),
             Fish(imageName: "fish", position: randomPosition(), size: 80),
             Fish(imageName: "fish", position: randomPosition(), size: 80)
@@ -117,19 +117,19 @@ struct WaitingView: View {
     }
     
     func startFishMovement(_ index: Int) {
-        guard index >= 0 && index < state.fishes.count else {
+        guard index >= 0 && index < viewModel.fishes.count else {
             return
         }
         
         let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         var count = 0
         
-        state.fishes[index].position = randomPosition() // Initial random position
+        viewModel.fishes[index].position = randomPosition() // Initial random position
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
             if count < 100 { // Move fish for 5 seconds
-                if index >= 0 && index < state.fishes.count {
-                    state.fishes[index].position = randomPosition()
+                if index >= 0 && index < viewModel.fishes.count {
+                    viewModel.fishes[index].position = randomPosition()
                     count += 1
                 }
             } else {
@@ -152,7 +152,7 @@ struct WaitingView: View {
     
     func addNewFish() {
         let newFish = Fish(imageName: "fish", position: randomPosition(), size: 80)
-        state.fishes.append(newFish)
+        viewModel.fishes.append(newFish)
     }
 }
 
