@@ -25,38 +25,20 @@ struct SigninView: View {
                     .foregroundColor(.gray)
                     .multilineTextAlignment(.center)
                     .font(.custom(pretendardRegular, size: 12))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .frame(width: 250, height: 30, alignment: .top)
                 
                 VStack {
-                    HStack {
-                        Text("아이디")
-                            .font(.custom(pretendardSemiBold, size: 13))
-                        
-                        Spacer()
-                    }
-                    .padding(.top, 30)
-                    .padding(.leading, 5)
-                    .padding(.bottom, 0)
+                    CustomSignTextField(text: "아이디" ,placeholder: "아이디를 입력해주세요", textfieldValue: viewModel.id)
                     
-                    CustomSignTextField(placeholder: "아이디를 입력해주세요", textfieldValue: viewModel.id)
                     
-                    HStack {
-                        Text("비밀번호")
-                            .font(.custom(pretendardSemiBold, size: 13))
-                        
-                        Spacer()
-                    }
-                    .padding(.top, 30)
-                    .padding(.leading, 5)
-                    .padding(.bottom, 0)
-                    
-                    CustomSignSecureField(placeholder: "비밀번호를 입력해주세요", textfieldValue: viewModel.password)
+                    CustomSignSecureField(text: "비밀번호", placeholder: "비밀번호를 입력해주세요", textfieldValue: viewModel.password)
                         
                     HStack {
                         Spacer()
-                        Button(action: {
+                        
+                        Button {
                             
-                        }) {
+                        } label: {
                             Text("비밀번호 찾기")
                                 .font(.custom(pretendardThin, size: 13))
                                 .foregroundColor(Color.black)
@@ -78,8 +60,11 @@ struct SigninView: View {
                     .padding(.trailing, 15)
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.bottom, 12)
+                    .padding(.top, 10)
                     
                     Spacer()
+                        .padding(.bottom, 70)
+
                     
                     Group {
                             NavigationLink(
