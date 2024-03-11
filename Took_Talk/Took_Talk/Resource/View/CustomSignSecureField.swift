@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct CustomSignSecureField: View {
-     @State var placeholder: String
-     @State var textfieldValue: String
+    @State var text: String?
+    @State var placeholder: String
+    @State var textfieldValue: String
+    
     var body: some View {
         VStack {
+            HStack {
+                Text(text ?? "")
+                    .font(.custom(pretendardRegular, size: 15))
+                
+                Spacer()
+            }
+            .padding(.top, 30)
+            .padding(.leading, 15)
+            .padding(.bottom, 0)
+            
             SecureField(placeholder, text: $textfieldValue)
-                .frame(width: 290, height: 35)
+                .frame(width: 290, height: 28)
             
             Rectangle()
                 .frame(width: 290, height: 0.7)
