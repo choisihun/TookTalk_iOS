@@ -10,7 +10,9 @@ import SwiftUI
 struct SexSwitchView: View {
     @AppStorage("animationModeKey") private var animationsMode: AnimationMode = .male
     @Environment(\.colorScheme) var colorScheme
-    let color = Color.indigo // Replace with your desired color
+    
+    let color = Color.gray // Replace with your desired color
+    
     var body: some View {
         VStack {
             HStack(spacing: 0) {
@@ -43,12 +45,12 @@ struct SexSwitchView: View {
                         .frame(maxWidth: .infinity)
                         .padding(8)
                         .padding(.vertical, 13)
-                        .contentShape(Rectangle()) // Add this line
+                        .contentShape(Rectangle())
                     }
                     .buttonStyle(BouncyButton())
                     if makeDivider {
                         Divider()
-                            .frame(width: 10, height: 55)
+                            .frame(width: 10, height: 60)
                     }
                 }
             }
@@ -61,7 +63,7 @@ struct SexSwitchView: View {
                     let caseCount = AnimationMode.allCases.count
                     let backgroundWidth = proxy.size.width / CGFloat(caseCount)
                     let xOffset = backgroundWidth * CGFloat(animationsMode.rawValue)
-                        RoundedRectangle(cornerRadius: 30)
+                        RoundedRectangle(cornerRadius: 20)
                             .fill(color.opacity(0.1))
                             .frame(width: backgroundWidth - 1)
                             .offset(x: xOffset)
