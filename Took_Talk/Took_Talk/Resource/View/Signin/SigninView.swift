@@ -48,6 +48,7 @@ struct SigninView: View {
                         Rectangle()
                             .frame(width: 1, height: 20)
                             .foregroundColor(Color("myGray"))
+<<<<<<< Updated upstream
                         Group {
                             
                             Button {
@@ -64,17 +65,41 @@ struct SigninView: View {
                         .padding(.bottom, 12)
                         .padding(.top, 10)
                     }
+=======
+                        Button {
+                            viewModel.signup()
+                        } label: {
+                            Text("회원가입")
+                                .font(.custom(pretendardThin, size: 13))
+                                .foregroundColor(Color.black)
+                                .fontWeight(.semibold)
+                        }
+                    }
+                    .padding(.trailing, 15)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.bottom, 12)
+                    .padding(.top, 10)
+                    
+>>>>>>> Stashed changes
                     Spacer()
                         .padding(.bottom, 70)
 
                     
                     Group {
                             NavigationLink(
+<<<<<<< Updated upstream
                                 destination: MainTabView(),
+=======
+                                destination: HomeView(),
+>>>>>>> Stashed changes
                                 isActive: $viewModel.isWaitingViewActive
                                 
                             ) {
                                 EmptyView()
+<<<<<<< Updated upstream
+=======
+                                
+>>>>>>> Stashed changes
                             }
                             .hidden()
                             Button(action: {
