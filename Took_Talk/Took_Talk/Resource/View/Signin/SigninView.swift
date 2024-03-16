@@ -32,7 +32,7 @@ struct SigninView: View {
                     
                     
                     CustomSignSecureField(text: "비밀번호", placeholder: "비밀번호를 입력해주세요", textfieldValue: viewModel.password)
-                        
+                    
                     HStack {
                         Spacer()
                         
@@ -48,7 +48,6 @@ struct SigninView: View {
                         Rectangle()
                             .frame(width: 1, height: 20)
                             .foregroundColor(Color("myGray"))
-<<<<<<< Updated upstream
                         Group {
                             
                             Button {
@@ -65,62 +64,51 @@ struct SigninView: View {
                         .padding(.bottom, 12)
                         .padding(.top, 10)
                     }
-=======
-                        Button {
-                            viewModel.signup()
-                        } label: {
-                            Text("회원가입")
-                                .font(.custom(pretendardThin, size: 13))
-                                .foregroundColor(Color.black)
-                                .fontWeight(.semibold)
-                        }
+                    Button {
+                        viewModel.signup()
+                    } label: {
+                        Text("회원가입")
+                            .font(.custom(pretendardThin, size: 13))
+                            .foregroundColor(Color.black)
+                            .fontWeight(.semibold)
                     }
-                    .padding(.trailing, 15)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding(.bottom, 12)
-                    .padding(.top, 10)
-                    
->>>>>>> Stashed changes
-                    Spacer()
-                        .padding(.bottom, 70)
-
-                    
-                    Group {
-                            NavigationLink(
-<<<<<<< Updated upstream
-                                destination: MainTabView(),
-=======
-                                destination: HomeView(),
->>>>>>> Stashed changes
-                                isActive: $viewModel.isWaitingViewActive
-                                
-                            ) {
-                                EmptyView()
-<<<<<<< Updated upstream
-=======
-                                
->>>>>>> Stashed changes
-                            }
-                            .hidden()
-                            Button(action: {
-                                viewModel.login()
-                            }) {
-                                Text("로그인")
-                                    .font(.custom(pretendardRegular, size: 20))
-                                    .frame(width: 320, height: 50)
-                            }
-                        
-                    }
-                    .background(Color("myOrange"))
-                    .foregroundColor(Color.white)
-                    .cornerRadius(15)
-                    .padding(.bottom, 87)
                 }
-                .padding(.horizontal, 45)
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .padding(.trailing, 15)
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.bottom, 12)
+                .padding(.top, 10)
                 
                 Spacer()
+                    .padding(.bottom, 70)
+                
+                
+                Group {
+                    NavigationLink(
+                        destination: MainTabView(),
+                        isActive: $viewModel.isWaitingViewActive
+                        
+                    ) {
+                        EmptyView()
+                    }
+                    .hidden()
+                    Button(action: {
+                        viewModel.login()
+                    }) {
+                        Text("로그인")
+                            .font(.custom(pretendardRegular, size: 20))
+                            .frame(width: 320, height: 50)
+                    }
+                    
+                }
+                .background(Color("myOrange"))
+                .foregroundColor(Color.white)
+                .cornerRadius(15)
+                .padding(.bottom, 87)
             }
+            .padding(.horizontal, 45)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            
+            Spacer()
         }
     }
 }

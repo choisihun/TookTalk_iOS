@@ -17,9 +17,7 @@ class ChatViewModel: ObservableObject {
     //        Message(userUid: "123", text: "안녕", photoURL: "", createdAt: Date())
     //    ]
     //    @Published var text = ""
-    
     func sendMessage(text: String) {
-        
         
         //        let newMessage = Message(userUid: "123", text: text, photoURL: "", createdAt: Date())
         //        mockData.append(newMessage)

@@ -9,19 +9,19 @@ import SwiftUI
 
 
 struct MessageView: View {
-    var message: Message
+//    var message: Message
     var body: some View {
             HStack {
                
                 
-                HStack {
-                    Text(message.text)
-                        .padding()
-                }
-                .frame(maxWidth: 260, alignment: .leading)
-                .background(Color(uiColor: .systemBlue))
-                .cornerRadius(20)
-                
+//                HStack {
+////                    Text(message.text)
+//                        .padding()
+//                }
+//                .frame(maxWidth: 260, alignment: .leading)
+//                .background(Color(uiColor: .systemBlue))
+//                .cornerRadius(20)
+//                
                 Image(systemName: "person.fill")
                     .frame(maxWidth: 32, alignment: .topLeading)
                     .padding(.bottom, 16)
