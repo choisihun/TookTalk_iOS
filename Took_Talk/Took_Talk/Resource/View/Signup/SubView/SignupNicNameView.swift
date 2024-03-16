@@ -34,7 +34,7 @@ struct SignupNicNameView: View {
                         .font(.custom(pretendardRegular, size: 15))
                 }
                 .frame(width: 140, height: 45)
-                .background(viewModel.isBoySelected ? Color(UIColor.systemGray2) : Color(UIColor.systemGray4))
+                .background(viewModel.isBoySelected ? Color(UIColor.systemGray2) : Color(.systemGray5))
                 .cornerRadius(10)
                 
                 Button(action: {
@@ -46,7 +46,7 @@ struct SignupNicNameView: View {
                         .font(.custom(pretendardRegular, size: 15))
                 }
                 .frame(width: 140, height: 45)
-                .background(viewModel.isGirlSelected ? Color(UIColor.systemGray2) : Color(UIColor.systemGray4))             
+                .background(viewModel.isGirlSelected ? Color(UIColor.systemGray2) : Color(UIColor.systemGray5))             
                 .cornerRadius(10)
                 
             }

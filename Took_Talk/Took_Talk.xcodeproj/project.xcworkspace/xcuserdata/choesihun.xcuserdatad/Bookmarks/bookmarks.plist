@@ -56,13 +56,13 @@
 					<key>EndingColumnNumber</key>
 					<string>0</string>
 					<key>EndingLineNumber</key>
-					<string>55</string>
+					<string>58</string>
 					<key>StartingColumnNumber</key>
 					<string>0</string>
 					<key>StartingLineNumber</key>
-					<string>54</string>
+					<string>57</string>
 					<key>Timestamp</key>
-					<string>731830751.738422</string>
+					<string>732297531.210234</string>
 				</dict>
 				<key>rebasable-url</key>
 				<dict>
@@ -78,16 +78,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>////        .navigationBarItems(leading: CustomBackButton())
+				<string>            //
 </string>
 				<key>leading</key>
-				<string>//            .hidden()        }
-//        .navigationBarBackButtonHidden(true)
+				<string>            //        .navigationBarBackButtonHidden(true)
+            ////        .navigationBarItems(leading: CustomBackButton())
 </string>
 				<key>trailing</key>
-				<string>//        
-//        .alert(isPresented: $viewModel.showAlert) {
-////            if isChatViewActive == true {
+				<string>            //        .alert(isPresented: $viewModel.showAlert) {
+            ////            if isChatViewActive == true {
+            ////
 </string>
 			</dict>
 			<key>type</key>
@@ -167,13 +167,13 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>$viewModel</string>
+				<string>: $viewMod</string>
 				<key>leading</key>
 				<string>                }
                 HStack {
-//                    TextField("Aa", text : </string>
+//                    TextField("Aa", text </string>
 				<key>trailing</key>
-				<string>.text, axis:.vertical)
+				<string>el.text, axis:.vertical)
 //                        .padding()
                     
 </string>
@@ -211,16 +211,16 @@
 			<key>text-context</key>
 			<dict>
 				<key>focused</key>
-				<string>//                MbtiPickerView(selected: $viewModel.mbti)
+				<string>                //                    .background(.red)
 </string>
 				<key>leading</key>
-				<string>                .padding(.bottom, 20)
-                
+				<string>                //                MbtiPickerView(selected: $viewModel.mbti)
+                //                    .frame()
 </string>
 				<key>trailing</key>
-				<string>//                    .frame()
-//                    .background(.red)
-                
+				<string>                
+                Text("상대의 성별")
+                    .foregroundStyle(.gray)
 </string>
 			</dict>
 			<key>type</key>

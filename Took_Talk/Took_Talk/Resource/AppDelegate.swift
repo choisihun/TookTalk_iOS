@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FirebaseCore
+//import FirebaseCore
 
 final class AppDelegate: NSObject {
     
@@ -16,7 +16,7 @@ final class AppDelegate: NSObject {
 
 extension AppDelegate: UIApplicationDelegate {
   func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-      FirebaseApp.configure()
+//      FirebaseApp.configure()
     return true
   }
 }
