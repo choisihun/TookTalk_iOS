@@ -48,32 +48,33 @@ struct SigninView: View {
                         Rectangle()
                             .frame(width: 1, height: 20)
                             .foregroundColor(Color("myGray"))
-                        Button {
-                            viewModel.signup()
-                        } label: {
-                            Text("회원가입")
-                                .font(.custom(pretendardThin, size: 13))
-                                .foregroundColor(Color.black)
-                                .fontWeight(.semibold)
+                        Group {
+                            
+                            Button {
+                                viewModel.signup()
+                            } label: {
+                                Text("회원가입")
+                                    .font(.custom(pretendardThin, size: 13))
+                                    .foregroundColor(Color.black)
+                                    .fontWeight(.semibold)
+                            }
                         }
+                        .padding(.trailing, 15)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.bottom, 12)
+                        .padding(.top, 10)
                     }
-                    .padding(.trailing, 15)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding(.bottom, 12)
-                    .padding(.top, 10)
-                    
                     Spacer()
                         .padding(.bottom, 70)
 
                     
                     Group {
                             NavigationLink(
-                                destination: HomeView(),
+                                destination: MainTabView(),
                                 isActive: $viewModel.isWaitingViewActive
                                 
                             ) {
                                 EmptyView()
-                                
                             }
                             .hidden()
                             Button(action: {
