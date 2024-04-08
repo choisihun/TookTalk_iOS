@@ -9,5 +9,4 @@ import Foundation
 import Alamofire
 
 struct SignupData: Decodable {
-    
 }
